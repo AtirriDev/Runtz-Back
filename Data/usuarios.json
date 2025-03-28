@@ -1,0 +1,73 @@
+[
+  {
+    "id": 1,
+    "nombre": "Juan",
+    "apellido": "Pérez",
+    "email": "juan.perez@example.com",
+    "contraseña": "Juan123"
+  },
+  {
+    "id": 2,
+    "nombre": "María",
+    "apellido": "González",
+    "email": "maria.gonzalez@example.com",
+    "contraseña": "Maria123"
+  },
+  {
+    "id": 3,
+    "nombre": "Carlos",
+    "apellido": "Rodríguez",
+    "email": "carlos.rodriguez@example.com",
+    "contraseña": "Carlos123"
+  },
+  {
+    "id": 4,
+    "nombre": "Ana",
+    "apellido": "López",
+    "email": "ana.lopez@example.com",
+    "contraseña": "Ana123"
+  },
+  {
+    "id": 5,
+    "nombre": "Luis",
+    "apellido": "Martínez",
+    "email": "luis.martinez@example.com",
+    "contraseña": "Luis123"
+  },
+  {
+    "id": 6,
+    "nombre": "Sofía",
+    "apellido": "Hernández",
+    "email": "sofia.hernandez@example.com",
+    "contraseña": "Sofia123"
+  },
+  {
+    "id": 7,
+    "nombre": "Miguel",
+    "apellido": "Díaz",
+    "email": "miguel.diaz@example.com",
+    "contraseña": "Miguel123"
+  },
+  {
+    "id": 8,
+    "nombre": "Lucía",
+    "apellido": "Torres",
+    "email": "lucia.torres@example.com",
+    "contraseña": "Lucia123"
+  },
+  {
+    "id": 9,
+    "nombre": "Pablo",
+    "apellido": "Ramírez",
+    "email": "pablo.ramirez@example.com",
+    "contraseña": "Pablo123"
+  },
+  {
+    "id": 10,
+    "nombre": "Valentina",
+    "apellido": "Fernández",
+    "email": "valentina.fernandez@example.com",
+    "contraseña": "valen123"
+  }
+]
+
