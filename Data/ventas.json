@@ -13,7 +13,7 @@
       "fecha": "2025-03-18",
       "total": 55000,
       "dirección": "Calle Falsa 123",
-      "productos": [15]
+      "productos": [3]
     },
     {
       "id": 3,
@@ -53,7 +53,7 @@
       "fecha": "2025-03-19",
       "total": 29000,
       "dirección": "Lavalle 950",
-      "productos": [3, 4]
+      "productos": [3]
     },
     {
       "id": 8,
@@ -77,7 +77,7 @@
       "fecha": "2025-03-27",
       "total": 99500,
       "dirección": "Rivadavia 880",
-      "productos": [11, 2]
+      "productos": [8, 2]
     }
   ]
   

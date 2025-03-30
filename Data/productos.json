@@ -4,70 +4,80 @@
       "nombre": "Gorra SB Aero",
       "desc": "Gorra Nike estilo SB Aero",
       "precio": 20000,
-      "imagen": "https://www.digitalsport.com.ar/files/products/595e80ac9b6f5-414652-500x500.jpg"
+      "imagen": "https://www.digitalsport.com.ar/files/products/595e80ac9b6f5-414652-500x500.jpg",
+       "disponible" : "true"
     },
     {
       "id": 2,
       "nombre": "Medias 3/4 Pack x3",
       "desc": "Pack de 3 medias Adidas",
       "precio": 5100,
-      "imagen": "https://media2.solodeportes.com.ar/media/catalog/product/cache/7c4f9b393f0b8cb75f2b74fe5e9e52aa/m/e/medias-con-ca-a-pack-x3-adidas-100040ht3458001-1.jpg"
+      "imagen": "https://media2.solodeportes.com.ar/media/catalog/product/cache/7c4f9b393f0b8cb75f2b74fe5e9e52aa/m/e/medias-con-ca-a-pack-x3-adidas-100040ht3458001-1.jpg",
+       "disponible" : "true"
     },
     {
       "id": 3,
       "nombre": "Morral X Sophia Chang",
       "desc": "Morral Puma en colaboración con Sophia Chang",
       "precio": 17000,
-      "imagen": "https://www.digitalsport.com.ar/files/products/668557276df95-624791-500x500.jpg"
+      "imagen": "https://www.digitalsport.com.ar/files/products/668557276df95-624791-500x500.jpg",
+       "disponible" : "true"
     },
     {
       "id": 4,
       "nombre": "Gorra Fish Koi",
       "desc": "Gorra New Era con diseño Fish Koi",
       "precio": 9500,
-      "imagen": "https://newera.com.ar/media/catalog/product/cache/06cfaa02c67cf3a5c3c05d775284c631/g/o/gorra-new-era-new-york-yankees-mlb-koi-fish-9fifty-60364482-3.jpg"
+      "imagen": "https://newera.com.ar/media/catalog/product/cache/06cfaa02c67cf3a5c3c05d775284c631/g/o/gorra-new-era-new-york-yankees-mlb-koi-fish-9fifty-60364482-3.jpg",
+      "disponible" : "false"
     },
     {
       "id": 5,
       "nombre": "Mochila Jordan PSG",
       "desc": "Mochila Jordan edición PSG",
       "precio": 18000,
-      "imagen": "https://www.digitalsport.com.ar/files/products/65428a2055de1-634449-500x500.jpg"
+      "imagen": "https://www.digitalsport.com.ar/files/products/65428a2055de1-634449-500x500.jpg",
+       "disponible" : "true"
     },
     {
       "id": 6,
       "nombre": "Bufanda RvR",
       "desc": "Bufanda de la marca Revolver",
       "precio": 8000,
-      "imagen": "https://www.digitalsport.com.ar/files/products/661ffde9dd5d2-648066-500x500.jpg"
+      "imagen": "https://www.digitalsport.com.ar/files/products/661ffde9dd5d2-648066-500x500.jpg",
+       "disponible" : "true"
     },
     {
       "id": 7,
       "nombre": "OZWEEGO",
       "desc": "Zapatillas Adidas OZWEEGO",
       "precio": 45000,
-      "imagen": "https://essential.vtexassets.com/arquivos/ids/1439218-800-auto?v=638494082685770000&width=800&height=auto&aspect=true"
+      "imagen": "https://essential.vtexassets.com/arquivos/ids/1439218-800-auto?v=638494082685770000&width=800&height=auto&aspect=true",
+       "disponible" : "true"
     },
     {
       "id": 8,
       "nombre": "Adi2000 X",
       "desc": "Zapatillas Adidas Adi2000 X",
       "precio": 51000,
-      "imagen": "https://www.moov.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwe441ad71/products/ADHQ6773/ADHQ6773-1.JPG"
+      "imagen": "https://www.moov.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwe441ad71/products/ADHQ6773/ADHQ6773-1.JPG",
+       "disponible" : "true"
     },
     {
       "id": 9,
       "nombre": "Air Force 1",
       "desc": "Zapatillas Nike Air Force 1",
       "precio": 80000,
-      "imagen": "https://www.moov.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw768060b7/products/NIDV0788-001/NIDV0788-001-2.JPG"
+      "imagen": "https://www.moov.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw768060b7/products/NIDV0788-001/NIDV0788-001-2.JPG",
+       "disponible" : "true"
     },
     {
       "id": 10,
       "nombre": "MB.03 TOXIC",
       "desc": "Zapatillas Puma MB.03 TOXIC",
       "precio": 40000,
-      "imagen": "https://www.digitalsport.com.ar/files/products/65dc7b9d4c9d8-607394-500x500.jpg"
+      "imagen": "https://www.digitalsport.com.ar/files/products/65dc7b9d4c9d8-607394-500x500.jpg",
+      "disponible" : "true"
     }
   ]
   
