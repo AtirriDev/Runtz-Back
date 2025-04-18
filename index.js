@@ -53,11 +53,11 @@ const Ventas = JSON.parse(archivoVentas)
     })
 
     //Traer los productos disponibles 
-    app.get('/Productos/:true' , (req , res)=> 
+    app.get('/Productos/disponibles' , (req , res)=> 
         {
-            const disponible = req.params.true
+            
 
-            let ProductosDisponibles = Productos.filter( x => x.disponible === disponible)
+            const ProductosDisponibles = Productos.filter( x => x.disponible === true)
           
 
             // devolvemos en la respuesta 
@@ -68,7 +68,27 @@ const Ventas = JSON.parse(archivoVentas)
                 res.send(400).json('No hay productos disponibles')
             }
         })
+    // traer todos los usuarios 
+    app.get('/Usuarios' , (req,res) =>
+    {
 
+        res.status(400).json(Usuarios)
+
+
+
+
+    })
+
+    // traer todas las ventas 
+    app.get('/Ventas' , (req,res) =>
+        {
+    
+            res.status(400).json(Ventas)
+    
+    
+    
+    
+        })
 //Rutas Post
     //Traer todas las ventas de un usuario especifico , con post 
     app.post('/Ventas' , (req,res)=> 
@@ -419,6 +439,14 @@ const Ventas = JSON.parse(archivoVentas)
 
 
         })
+
+
+
+
+
+
+
+   
 
 
 
