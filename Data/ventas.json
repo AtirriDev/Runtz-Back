@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "id_usuario": 3,
+    "id_usuario": 2,
     "fecha": "2025-03-20",
     "total": 120000,
     "dirección": "Av. Siempre Viva 742",
@@ -101,6 +101,30 @@
     "productos": [
       8,
       2
+    ]
+  },
+  {
+    "id": 11,
+    "id_usuario": 11,
+    "fecha": "2025-05-17",
+    "total": 340000,
+    "dirección": "Av. Rivadavia n1450",
+    "productos": [
+      13,
+      14,
+      15
+    ]
+  },
+  {
+    "id": 12,
+    "id_usuario": 11,
+    "fecha": "2025-05-18",
+    "total": 415000,
+    "dirección": "74 n969",
+    "productos": [
+      3,
+      2,
+      5
     ]
   }
 ]

@@ -1,82 +1,192 @@
 [
   {
     "id": 1,
-    "nombre": "Gorra SB Aero",
-    "desc": "Gorra Nike estilo SB Aero",
-    "precio": 20000,
+    "marca": "Nike",
+    "producto": "Gorra SB Aero",
+    "categoria": "Accesorios",
     "imagen": "https://www.digitalsport.com.ar/files/products/595e80ac9b6f5-414652-500x500.jpg",
+    "precio": 55000,
     "disponible": true
   },
   {
     "id": 2,
-    "nombre": "Medias 3/4 Pack x3",
-    "desc": "Pack de 3 medias Adidas",
-    "precio": 5100,
-    "imagen": "https://media2.solodeportes.com.ar/media/catalog/product/cache/7c4f9b393f0b8cb75f2b74fe5e9e52aa/m/e/medias-con-ca-a-pack-x3-adidas-100040ht3458001-1.jpg",
+    "marca": "New Era",
+    "producto": "Gorra Lakers",
+    "categoria": "Accesorios",
+    "imagen": "https://http2.mlstatic.com/D_787562-MLA82793544681_022025-O.jpg",
+    "precio": 45000,
     "disponible": true
   },
   {
     "id": 3,
-    "nombre": "Morral X Sophia Chang",
-    "desc": "Morral Puma en colaboración con Sophia Chang",
-    "precio": 17000,
-    "imagen": "https://www.digitalsport.com.ar/files/products/668557276df95-624791-500x500.jpg",
+    "marca": "Nike",
+    "producto": "Lebron XXI",
+    "categoria": "Calzado",
+    "imagen": "https://www.opensports.com.ar/media/catalog/product/cache/05274af0d548b38ac2c73c40ddac6010/h/f/hf5353-400_0_14.jpg",
+    "precio": 150000,
     "disponible": true
   },
   {
     "id": 4,
-    "nombre": "Gorra Fish Koi",
-    "desc": "Gorra New Era con diseño Fish Koi",
-    "precio": 9500,
-    "imagen": "https://newera.com.ar/media/catalog/product/cache/06cfaa02c67cf3a5c3c05d775284c631/g/o/gorra-new-era-new-york-yankees-mlb-koi-fish-9fifty-60364482-3.jpg",
+    "marca": "New Era",
+    "producto": "Gorra Fish Koi",
+    "categoria": "Accesorios",
+    "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwPr5Npimno8OhjWzvvCmexsbuvNn_oCuhkw&s",
+    "precio": 45000,
     "disponible": false
   },
   {
     "id": 5,
-    "nombre": "Mochila Jordan PSG",
-    "desc": "Mochila Jordan edición PSG",
-    "precio": 18000,
-    "imagen": "https://www.digitalsport.com.ar/files/products/65428a2055de1-634449-500x500.jpg",
+    "marca": "Adidas",
+    "producto": "Harden Vol. 8",
+    "categoria": "Calzado",
+    "imagen": "https://essential.vtexassets.com/arquivos/ids/1479869-800-auto?v=638531857155070000&width=800&height=auto&aspect=true",
+    "precio": 220000,
     "disponible": true
   },
   {
     "id": 6,
-    "nombre": "Bufanda RvR",
-    "desc": "Bufanda de la marca Revolver",
-    "precio": 8000,
-    "imagen": "https://www.digitalsport.com.ar/files/products/661ffde9dd5d2-648066-500x500.jpg",
+    "marca": "Jordan",
+    "producto": "Air Jordan 38",
+    "categoria": "Calzado",
+    "imagen": "https://media.gq.com.mx/photos/6499c84648a0450eaa66850a/master/w_1600%2Cc_limit/382.jpg",
+    "precio": 200000,
     "disponible": true
   },
   {
     "id": 7,
-    "nombre": "OZWEEGO",
-    "desc": "Zapatillas Adidas OZWEEGO",
-    "precio": 45000,
+    "marca": "Adidas",
+    "producto": "OZWEEGO",
+    "categoria": "Calzado",
     "imagen": "https://essential.vtexassets.com/arquivos/ids/1439218-800-auto?v=638494082685770000&width=800&height=auto&aspect=true",
+    "precio": 140000,
     "disponible": true
   },
   {
     "id": 8,
-    "nombre": "Adi2000 X",
-    "desc": "Zapatillas Adidas Adi2000 X",
-    "precio": 51000,
+    "marca": "Adidas",
+    "producto": "Adi2000 X",
+    "categoria": "Calzado",
     "imagen": "https://www.moov.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwe441ad71/products/ADHQ6773/ADHQ6773-1.JPG",
+    "precio": 125000,
     "disponible": true
   },
   {
     "id": 9,
-    "nombre": "Air Force 1",
-    "desc": "Zapatillas Nike Air Force 1",
-    "precio": 80000,
+    "marca": "Nike",
+    "producto": "Air Force 1",
+    "categoria": "Calzado",
     "imagen": "https://www.moov.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw768060b7/products/NIDV0788-001/NIDV0788-001-2.JPG",
+    "precio": 180000,
     "disponible": true
   },
   {
     "id": 10,
-    "nombre": "MB.03 TOXIC",
-    "desc": "Zapatillas Puma MB.03 TOXIC",
-    "precio": 40000,
+    "marca": "Puma",
+    "producto": "MB.03 TOXIC",
+    "categoria": "Calzado",
     "imagen": "https://www.digitalsport.com.ar/files/products/65dc7b9d4c9d8-607394-500x500.jpg",
+    "precio": 140000,
+    "disponible": true
+  },
+  {
+    "id": 11,
+    "marca": "Reebok",
+    "producto": "Question Mid",
+    "categoria": "Calzado",
+    "imagen": "https://http2.mlstatic.com/D_NQ_NP_904765-MLA74478969747_022024-O.webp",
+    "precio": 178000,
+    "disponible": true
+  },
+  {
+    "id": 12,
+    "marca": "Nike",
+    "producto": "Camiseta Lakers",
+    "categoria": "Indumentaria",
+    "imagen": "https://www.tripstore.com.ar/media/catalog/product/cache/a6c7e1c8e1ee3bec21df5432c2a808a3/d/n/dn2081-103_0.jpg",
+    "precio": 130000,
+    "disponible": true
+  },
+  {
+    "id": 13,
+    "marca": "Nike",
+    "producto": "Camiseta Golden State Warriors",
+    "categoria": "Indumentaria",
+    "imagen": "https://acdn-us.mitiendanube.com/stores/194/524/products/thumb31-595b190c553abd51fc16051325954595-640-0.jpg",
+    "precio": 135000,
+    "disponible": true
+  },
+  {
+    "id": 14,
+    "marca": "Nike",
+    "producto": "Camiseta Boston Celtics",
+    "categoria": "Indumentaria",
+    "imagen": "https://woker.vtexassets.com/arquivos/ids/540462/4DX8488-133-1.jpg?v=638700384263630000",
+    "precio": 120000,
+    "disponible": true
+  },
+  {
+    "id": 15,
+    "marca": "Nike",
+    "producto": "Buzo NBA logo",
+    "categoria": "Indumentaria",
+    "imagen": "https://ferreira.vtexassets.com/arquivos/ids/436669-800-auto?v=638580452589930000&width=800&height=auto&aspect=true",
+    "precio": 85000,
+    "disponible": true
+  },
+  {
+    "id": 16,
+    "marca": "Jordan",
+    "producto": "Buzo Jordan JumpMan",
+    "categoria": "Indumentaria",
+    "imagen": "https://acdn-us.mitiendanube.com/stores/001/777/643/products/diseno-sin-titulo-31-22b26cc6fa35881a7917243548060885-1024-1024.png",
+    "precio": 125000,
+    "disponible": true
+  },
+  {
+    "id": 17,
+    "marca": "NBA",
+    "producto": "Bomber Jacket Chicago Bulls",
+    "categoria": "Indumentaria",
+    "imagen": "https://acdn-us.mitiendanube.com/stores/001/015/914/products/1101-bb5e6d83ae3eb24f7e16930674120409-640-0.png",
+    "precio": 230000,
+    "disponible": true
+  },
+  {
+    "id": 18,
+    "marca": "NBA",
+    "producto": "Bomber Jacket NBA Logos",
+    "categoria": "Indumentaria",
+    "imagen": "https://cdn-images.farfetch-contents.com/18/26/71/50/18267150_39011899_600.jpg",
+    "precio": 210000,
+    "disponible": true
+  },
+  {
+    "id": 19,
+    "marca": "NBA",
+    "producto": "Mochila NBA Logo",
+    "categoria": "Accesorios",
+    "imagen": "https://ferreira.vtexassets.com/arquivos/ids/425176/nba_22077NEGRO.jpg?v=638405720885400000",
+    "precio": 72000,
+    "disponible": true
+  },
+  {
+    "id": 20,
+    "marca": "NBA",
+    "producto": "Bolzo NBA Chicago Bulls",
+    "categoria": "Accesorios",
+    "imagen": "https://ferreira.vtexassets.com/arquivos/ids/424385/nba_27660NEGRO.jpg?v=638388689104530000",
+    "precio": 75000,
+    "disponible": true
+  },
+  {
+    "id": 21,
+    "marca": "NBA",
+    "producto": "Muñequeras NBA",
+    "categoria": "Accesorios",
+    "imagen": "https://m.media-amazon.com/images/I/9132DjQtrcL._AC_UY350_.jpg",
+    "precio": 35000,
     "disponible": true
   }
 ]
+
