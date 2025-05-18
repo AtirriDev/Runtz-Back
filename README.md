@@ -6,7 +6,7 @@ Desarrollado con Node.js y utilizando el framework Express para gestionar las op
 
 ## Repositorios relacionados
 
-- [Runtz-Front]((https://github.com/AtirriDev/Runtz-Front)) - Repositorio con el frontend de la aplicación, desarrollado en HTML, Tailwind y JavaScript vanilla.
+- [Runtz-Front](((https://github.com/AtirriDev/Runtz-Front)) - Repositorio con el frontend de la aplicación, desarrollado en HTML, Tailwind y JavaScript vanilla.
 
 ## Instalación
 
