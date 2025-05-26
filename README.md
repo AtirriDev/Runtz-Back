@@ -2,7 +2,7 @@
 
 Backend API E-commerce.  
 Repositorio que contiene el código fuente del backend (API) para Runtz, la tienda online de indumentaria, calzado y accesorios de estilo urbano y básquet.  
-Desarrollado con Node.js y utilizando el framework Express para gestionar las operaciones y datos de la plataforma.
+Desarrollado con Node.js y utilizando el framework Express para gestionar las operaciones y datos de la plataforma. Conexion a MongoDb como base de datos.
 
 ## Repositorios relacionados
 
@@ -38,10 +38,20 @@ O para producción:
 npm start
 
 El servidor correrá en `http://localhost:3000` (o el puerto que configures).
+## Base de Datos (MongoDB)
 
+Este backend se conecta a una base de datos MongoDB.
+
+* **Colección `productos`**: Los datos iniciales para la colección de productos se encuentran en la carpeta `DatosParaBd/productos.json`. Deberás **importar este archivo manualmente** a tu base de datos MongoDB para que los productos estén disponibles en el frontend desde el inicio.
+   
+        *(Asegúrate de tener las herramientas de cliente de MongoDB instaladas para usar `mongoimport`.)*
+
+* **Colecciones `usuarios` y `ventas`**: No es necesario crear estas colecciones manualmente. Se **generarán automáticamente** en tu base de datos la primera vez que se registre un usuario o se realice una venta a través de la API, gracias a la gestión de modelos de Mongoose.
+
+  
 ## Estructura del proyecto
-
-- /data : Archivos de datos json  
+-/DatosParaBd/productos.json
+- /database : contiene la conexion a MongoDb , schemas y actions 
 - /routes : Definición de rutas API  
 - index.js : Punto de entrada del servidor  
 - .env : Variables de entorno  
