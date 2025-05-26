@@ -1,6 +1,9 @@
 /* Aca vamos a trabajar todas las rutas que tengan que ver con los usuarios */
 import { Router } from "express";
 import { readFile, writeFile } from 'fs/promises'
+import { ObtenerVentas,NuevaVenta , ObtenerPorIdVenta , VentasPorUsuario} from "../database/actions/ventas.actions.js";
+import mongoose from 'mongoose'; //  importar mongoose
+import { BuscarUsuario } from '../database/actions/usuarios.actions.js';
 
 
 // constante de router para exportar 
@@ -8,19 +11,8 @@ const router = Router()
 
 
 
-// Obtener datos 
-const GetVentas = async() => {
-    const archivoVentas  = await readFile('./Data/ventas.json' , 'utf-8') 
-    return JSON.parse(archivoVentas) 
 
-} 
 
-// Obtener datos 
-const GetUsuarios = async() => {
-    const archivoUsuarios  = await readFile('./Data/usuarios.json' , 'utf-8') 
-    return JSON.parse(archivoUsuarios) 
-
-} 
 
 
 /*Rutas GET */
@@ -29,8 +21,8 @@ const GetUsuarios = async() => {
  router.get('/' ,async (req,res) =>
     {
         try {
-               const ventas = await GetVentas()
-                
+               const ventas = await ObtenerVentas()
+                console.log(ventas)
                 if (ventas) {
                     res.status(200).json(ventas)
                 }else{
@@ -47,107 +39,100 @@ const GetUsuarios = async() => {
 
     })
 
+
 /*Rutas POST */
       
       // Traer todas las ventas de un usuario específico, con POST 
-         //** si se prueba con  el usuario 3 se valida que no tiene ventas  */
-            router.post('/', async (req, res) => {
-                try {
-                    // Obtenemos las ventas y los usuarios
-                    const Ventas = await GetVentas();
-                    const Usuarios = await GetUsuarios();
+         
+            router.post('/VentasPorUsuario', async (req, res) => {
+                        try {
+                            const idUsuario = req.body.id;
+                            console.log('Id recibido : ', idUsuario);
 
-                    // Sacamos el id del usuario del body
-                    const idUsuario = parseInt(req.body.id);
-                    console.log('Id recibido : ', idUsuario);
+                            // 1. Validar el formato del ObjectId
+                            if (!mongoose.Types.ObjectId.isValid(idUsuario)) {
+                                console.log('ID de usuario no válido recibido:', idUsuario);
+                                return res.status(400).json({
+                                    error: 'El ID de usuario proporcionado no tiene un formato válido (debe ser una cadena hexadecimal de 24 caracteres).'
+                                });
+                            }
 
-                    // Buscamos el usuario en el array de usuarios
-                    let usuarioVenta = Usuarios.find(x => x.id === idUsuario);
+                            // 2. Verificar que el usuario exista
+                           
+                            const usuarioExistente = await BuscarUsuario(idUsuario);
 
-                    let NombreCompleto = " ";
-                    if (usuarioVenta) {
-                        NombreCompleto = usuarioVenta.nombre + " " + usuarioVenta.apellido;
-                        console.log(NombreCompleto);
-                    } else {
-                        res.status(400).json(`Usuario no encontrado`);
-                        console.log(`El usuario con el id : ${idUsuario} no se encuentra registrado `);
-                        return;
-                    }
+                            if (!usuarioExistente) { 
+                                console.log("No existe usuario con el ID ingresado:", idUsuario);
+                               
+                                return res.status(400).json({ message: `No existe un usuario con el ID ingresado: ${idUsuario}` });
+                            }
 
-                    // Filtramos las ventas del usuario
-                    let VentasPorUsuario = Ventas.filter(x => x.id_usuario === idUsuario);
+                            // 3. Filtramos las ventas del usuario
+                            let ventasDelUsuario = await VentasPorUsuario(idUsuario); 
 
-                    // Verificamos si el usuario tiene ventas asociadas
-                    if (VentasPorUsuario.length > 0) {
-                        res.status(200).json(VentasPorUsuario);
-                    } else {
-                        res.status(400).json(`El usuario ${NombreCompleto} no tiene operaciones asociadas`);
-                    }
+                          
+                            console.log("Ventas encontradas:", ventasDelUsuario);
 
-                } catch (error) {
-                  
-                    console.error('Error al procesar la solicitud:', error);
-                    res.status(500).json({ error: 'Hubo un problema al procesar la solicitud' });
-                }
+                            // 4. Verificamos si el usuario tiene ventas asociadas
+                            
+                            if (ventasDelUsuario && ventasDelUsuario.length > 0) {
+                                res.status(200).json(ventasDelUsuario);
+                            } else {
+                                
+                                res.status(400).json({ message: `El usuario con ID ${idUsuario} no posee ventas registradas.` });
+                            }
+
+                        } catch (error) {
+                            console.error('Error al procesar la solicitud en la ruta de ventas:', error);
+
+                            
+                            res.status(500).json({ error: 'Hubo un problema interno del servidor al procesar la solicitud.' });
+                        }
             });
 
-
-
-          // NUEVA VENTA
-          router.post("/add", async (req, res) => {
+// Traer todas las ventas por id  específico, 
+        router.post("/BusquedaPorId" , async (req,res) => {
+            const id = req.body.id;
+           
             try {
-                const Ventas = await GetVentas();
-
-                // Obtener el último ID y sumarle 1
-                const lastId = Ventas.length > 0 ? Math.max(...Ventas.map(u => u.id)) : 0; // si no hay usuario le asigna el valor cero 
-                const nuevoId = lastId + 1; // aca se le suma uno al ultimo id para que sea el id del nuevo usuario 
-                // Obtenemos la venta
-                const venta = {
-                    id: nuevoId,
-                    id_usuario: req.body.id_usuario,
-                    fecha: req.body.fecha,
-                    total: req.body.total,
-                    dirección: req.body.dirección,
-                    productos: req.body.productos
-                };
-        
-                console.log("venta para procesar ");
-                console.log(venta);
-                console.log("Vamos a escribir el archivo");
-        
-                // Validación de la venta
-                if (!venta) {
-                    // Como no lo es, mandamos la respuesta de error
-                    res.status(400).json("No existe ninguna venta");
-                    console.log("No existe ninguna venta");
-                    return;
-                }
-        
-                // Si es válido, seguimos con la ejecución
-                Ventas.push(venta); // Añadimos la venta al array de ventas
-        
-                //  timeout para ver si la escritura tarda demasiado , por que se me quedaba bloqueado el postman 
-                const timeout = setTimeout(() => {
-                    res.status(500).json({ error: 'La escritura del archivo está tardando demasiado.' });
-                }, 10000); // 10 segundos
-        
-                // Sobreescribimos el archivo JSON con el array actualizado
-                await writeFile('./Data/ventas.json', JSON.stringify(Ventas, null, 2)); // Usamos await para esperar que se termine la escritura
-        
-                // Si se terminó correctamente, cancelamos el timeout
-                clearTimeout(timeout);
-        
-                // Respondemos con la venta agregada
-                res.status(200).json(venta); // Devolvemos una respuesta con la venta agregada
-                console.log("venta cargada");
-                console.log(venta); // Lo mostramos por consola también
-                console.log("Procedimiento terminado");
-        
-            } catch (err) {
-                console.error('Error en la escritura del archivo json :', err); // Mostramos el error en consola
-                res.status(500).json({ error: 'Error en la escritura del archivo json' }); // Mandamos el error como respuesta
+                const ventabuscada = await ObtenerPorIdVenta(id)
+                console.log(ventabuscada)
+                 res.status(200).json(ventabuscada);
+            } catch (error) {
+                console.log(error)
             }
-        });
+
+
+
+        })
+
+         
+
+        // NUEVA VENTA
+          router.post("/add", async (req, res) => {
+                try {
+                    const { id_usuario, fecha, total, dirección , productos } = req.body;
+
+                    const venta = { id_usuario, fecha, total, dirección, productos };
+
+                    console.log("venta para procesar ");
+                    console.log(venta);
+
+                    
+
+                    const ventaGuardada = await NuevaVenta(venta);
+
+                    res.status(200).json(ventaGuardada);
+                    console.log("venta cargada");
+                    console.log(ventaGuardada);
+                    console.log("Procedimiento terminado");
+
+                } catch (err) {
+                    console.error('Error al guardar la venta:', err);
+                    res.status(500).json({ error: 'Error al guardar la venta' });
+                }
+             });
+
 
 /*Exportamos */
 

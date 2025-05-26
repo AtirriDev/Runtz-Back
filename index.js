@@ -1,54 +1,46 @@
-// Importaciones 
-import express from 'express'
-import dotenv from 'dotenv'
-import cors from 'cors'
+import express from 'express';
+import dotenv from 'dotenv';
+import cors from 'cors';
 
-import { json } from 'stream/consumers'
+import { conexionDataBase } from './database/conexion.db.js'; // Import de la base de datos 
+import userRouter from './Routes/Usuarios.routes.js';
+import ProdRouter from './Routes/Productos.routes.js';
+import VentasRouter from './Routes/Ventas.routes.js';
 
+dotenv.config(); // Siempre primero
 
-// vamos a importar las rutas
+const app = express();
+const port = process.env.port || 5555;
 
-import userRouter from './Routes/Usuarios.routes.js'
-import ProdRouter from './Routes/Productos.routes.js'
-import VentasRouter from './Routes/Ventas.routes.js'
-
-// Traer variable de entorno 
-
-dotenv.config()
-
-// Instanciar express
-
-const app = express()
-
-
-// Trabajar con Json 
-
-app.use(express.json())
-
-// Configuracion de puerto 
-
-const port = process.env.port || 5555 // traemos el puerto que tenemos en el archivo .env , si no lo encuentra va a poner 3000 como puerto de defecto 
-
-
+app.use(express.json());
 
 app.use(cors({
-    // vinculamos al front
-    origin: 'http://127.0.0.1:5500'
-}))
+  origin: 'http://127.0.0.1:5500'
+}));
 
+// Conectarse a la bd e iniciar el servidor 
+const IniciarServidor = async () => {
+  try {
+    await conexionDataBase(); // 👈 SOLO ACÁ
+    console.log("Base de datos conectada");
 
-// levantar el servidor 
+    // Rutas después de conectar
+    app.use('/Usuarios', userRouter);
+    app.use('/Productos', ProdRouter);
+    app.use('/Ventas', VentasRouter);
 
-app.listen(port , ()=> {
-    console.log(`Servidor levantada en puerto ${port}`)
-})
+    app.listen(port, () => {
+      console.log(`Servidor levantado en puerto ${port}`);
+    });
 
+  } catch (err) {
+    console.error("Error al conectar la base de datos:", err);
+    process.exit(1);
+  }
+};
 
-// Usar las rutas
+IniciarServidor(); // iniciamos el servidor 
 
-app.use('/Usuarios', userRouter);   
-app.use('/Productos' , ProdRouter)
-app.use('/Ventas' , VentasRouter)
 
       
 

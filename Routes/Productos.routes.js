@@ -1,6 +1,8 @@
 /* Aca vamos a trabajar todas las rutas que tengan que ver con los usuarios */
 import { Router } from "express";
 import { readFile, writeFile } from 'fs/promises'
+import { ObtenerTodos , AgregarProducto , BuscarPorCategoria } from "../database/actions/productos.actions.js";
+import Producto from "../database/schemas/productos.schema.js";
 
 
 // constante de router para exportar 
@@ -20,8 +22,8 @@ const GetProductos = async() => {
      router.get('/' , async (req,res) =>
         {
             try {
-                const productos = await GetProductos();
-            
+                const productos = await ObtenerTodos();
+                console.log(productos)
             
                 if (productos) {
                     res.status(200).json(productos)
@@ -45,8 +47,9 @@ const GetProductos = async() => {
      router.get('/disponibles' , async (req , res)=> 
         {
             try {
-                const Productos = await GetProductos();
-                const ProductosDisponibles = Productos.filter( x => x.disponible === true)
+                  const productos = await ObtenerTodos();
+                  console.log(productos)
+                  const ProductosDisponibles = productos.filter( x => x.disponible === true)
               
     
                 // devolvemos en la respuesta 
@@ -66,20 +69,21 @@ const GetProductos = async() => {
     
 /* Rutas POST */
 
-        // traer producto por cagetegorias 
-        router.post('/', async (req,res)=>{
+       
+        
+         // traer producto por categorias 
+        router.post('/categorias', async (req,res)=>{
             // obtenemos la categoria que la van a mandar por el body
             const categoria = req.body.categoria;
-
-            // obtenemos todos los productos 
-
-            const productos = await GetProductos() ;
+            console.log("Vamos a atrar productos con la categoria : " + categoria )
+            
 
             // FILTRAMOS POR CATEGORIA 
-            const ProdcutosCategorias = productos.filter(prod => prod.categoria === categoria)
 
+            const ProdCategorias = await BuscarPorCategoria(categoria)
+          
             // VALIDAMOS , en teoria no va a fallar por que yo mismo mando por el body la categoria pero bueno no viene mal validar
-            if (!ProdcutosCategorias) {
+            if (!ProdCategorias) {
                   // Si no lo es, mandamos la respuesta de error
                 res.status(400).json("No hay articulos con esa categoria");
                 console.log("Error: categoria no válida");
@@ -87,26 +91,28 @@ const GetProductos = async() => {
             }
 
             // mandamos la respuesta
-            res.status(200).json(ProdcutosCategorias)
+            res.status(200).json(ProdCategorias)
             
         })
+
     
 
-    // Vamos a agregar un Producto nuevo 
+    // nuevo add
     router.post('/add', async (req, res) => {
         try {
-            const Productos = await GetProductos();
-            
-            // Creamos la constante de producto y le pasamos los campos del body
-            const articulo = {
-                id: parseInt(req.body.id),
-                nombre: req.body.nombre,
-                desc: req.body.desc,
-                precio: req.body.precio,
-                imagen: req.body.img,
-                disponible: "true"
-            };
 
+           
+            // Solo usás los campos que realmente necesitás del body
+            const articulo = {
+                marca: req.body.marca,
+                producto: req.body.producto,
+                categoria: req.body.categoria,
+                imagen: req.body.imagen,
+                precio: req.body.precio,
+                disponible: true
+            }
+
+            console.log(articulo)
              // Verificamos que sea válido el artículo a agregar          
              if (!articulo) {
                
@@ -119,58 +125,26 @@ const GetProductos = async() => {
             }
 
            
-            // verificamos si existe el producto con el id para no duplicar 
-            const yaExiste = Productos.some(element => element.id === articulo.id);
-            // si existe mandamos un return con el error 
-            if (yaExiste) {
-                console.log("No se puede agregar el producto por que su id ya existe en stock ");
-                return res.status(400).json("Numero de articulo ya existente");
-                
-            }
+            
            
-           
-            console.log("Articulo a agregar");
-            console.log(articulo)
 
-            // Si es válido, seguimos la ejecución
-            Productos.push(articulo); // Agregamos el artículo al arreglo productos
+            // Guardar en la DB
+            const nuevoProducto = await AgregarProducto(articulo);
 
-            //  timeout para ver si la escritura tarda demasiado , por que se me quedaba bloqueado el postman 
-            const timeout = setTimeout(() => {
-                res.status(500).json({ error: 'La escritura del archivo está tardando demasiado.' });
-            }, 10000); // 10 segundos
-
-            // Escritura del JSON, con el array actualizado
-           await writeFile('./Data/productos.json', JSON.stringify(Productos, null, 2));
-                
-                
-            // Si se terminó correctamente, cancelamos el timeout
-            clearTimeout(timeout);
-            // Si no hay error, devolvemos una respuesta con el artículo agregado
-            res.status(200).json(articulo); // Devolvemos una respuesta con el artículo agregado
-            
-            
-
-            console.log("Operación exitosa");
-               
-                
-               
-            
-
+            return res.status(201).json(nuevoProducto);
             
         } catch (error) {
-           
-            console.error('Error al procesar la solicitud:', error);
-            res.status(500).json({ error: 'Hubo un problema al procesar la solicitud' });
+            console.error('Error al agregar producto:', error.message);
+            res.status(500).json({ error: 'Error interno al agregar el producto' });
         }
-    });
+});
     
 
 // Rutas Delete
         // vamos a eliminar un producto 
         router.delete("/delete/:id", async (req, res) => {
             try {
-                const Productos = await GetProductos();
+                 const productos = await ObtenerTodos();
                 
                 // Obtenemos el id del producto desde la URL
                 const id = parseInt(req.params.id);

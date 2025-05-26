@@ -1,6 +1,6 @@
 [
   {
-    "id": 1,
+    
     "marca": "Nike",
     "producto": "Gorra SB Aero",
     "categoria": "Accesorios",
@@ -9,7 +9,7 @@
     "disponible": true
   },
   {
-    "id": 2,
+    
     "marca": "New Era",
     "producto": "Gorra Lakers",
     "categoria": "Accesorios",
@@ -18,7 +18,7 @@
     "disponible": true
   },
   {
-    "id": 3,
+    
     "marca": "Nike",
     "producto": "Lebron XXI",
     "categoria": "Calzado",
@@ -27,7 +27,7 @@
     "disponible": true
   },
   {
-    "id": 4,
+    
     "marca": "New Era",
     "producto": "Gorra Fish Koi",
     "categoria": "Accesorios",
@@ -36,7 +36,7 @@
     "disponible": false
   },
   {
-    "id": 5,
+    
     "marca": "Adidas",
     "producto": "Harden Vol. 8",
     "categoria": "Calzado",
@@ -45,7 +45,7 @@
     "disponible": true
   },
   {
-    "id": 6,
+    
     "marca": "Jordan",
     "producto": "Air Jordan 38",
     "categoria": "Calzado",
@@ -54,7 +54,7 @@
     "disponible": true
   },
   {
-    "id": 7,
+    
     "marca": "Adidas",
     "producto": "OZWEEGO",
     "categoria": "Calzado",
@@ -63,7 +63,7 @@
     "disponible": true
   },
   {
-    "id": 8,
+    
     "marca": "Adidas",
     "producto": "Adi2000 X",
     "categoria": "Calzado",
@@ -72,7 +72,7 @@
     "disponible": true
   },
   {
-    "id": 9,
+    
     "marca": "Nike",
     "producto": "Air Force 1",
     "categoria": "Calzado",
@@ -81,7 +81,7 @@
     "disponible": true
   },
   {
-    "id": 10,
+    
     "marca": "Puma",
     "producto": "MB.03 TOXIC",
     "categoria": "Calzado",
@@ -90,7 +90,7 @@
     "disponible": true
   },
   {
-    "id": 11,
+    
     "marca": "Reebok",
     "producto": "Question Mid",
     "categoria": "Calzado",
@@ -99,7 +99,7 @@
     "disponible": true
   },
   {
-    "id": 12,
+    
     "marca": "Nike",
     "producto": "Camiseta Lakers",
     "categoria": "Indumentaria",
@@ -108,7 +108,7 @@
     "disponible": true
   },
   {
-    "id": 13,
+    
     "marca": "Nike",
     "producto": "Camiseta Golden State Warriors",
     "categoria": "Indumentaria",
@@ -117,7 +117,7 @@
     "disponible": true
   },
   {
-    "id": 14,
+    
     "marca": "Nike",
     "producto": "Camiseta Boston Celtics",
     "categoria": "Indumentaria",
@@ -126,7 +126,7 @@
     "disponible": true
   },
   {
-    "id": 15,
+    
     "marca": "Nike",
     "producto": "Buzo NBA logo",
     "categoria": "Indumentaria",
@@ -135,7 +135,7 @@
     "disponible": true
   },
   {
-    "id": 16,
+    
     "marca": "Jordan",
     "producto": "Buzo Jordan JumpMan",
     "categoria": "Indumentaria",
@@ -144,7 +144,7 @@
     "disponible": true
   },
   {
-    "id": 17,
+   
     "marca": "NBA",
     "producto": "Bomber Jacket Chicago Bulls",
     "categoria": "Indumentaria",
@@ -153,7 +153,7 @@
     "disponible": true
   },
   {
-    "id": 18,
+    
     "marca": "NBA",
     "producto": "Bomber Jacket NBA Logos",
     "categoria": "Indumentaria",
@@ -162,7 +162,7 @@
     "disponible": true
   },
   {
-    "id": 19,
+    
     "marca": "NBA",
     "producto": "Mochila NBA Logo",
     "categoria": "Accesorios",
@@ -171,7 +171,7 @@
     "disponible": true
   },
   {
-    "id": 20,
+    
     "marca": "NBA",
     "producto": "Bolzo NBA Chicago Bulls",
     "categoria": "Accesorios",
@@ -180,7 +180,7 @@
     "disponible": true
   },
   {
-    "id": 21,
+    
     "marca": "NBA",
     "producto": "Muñequeras NBA",
     "categoria": "Accesorios",
