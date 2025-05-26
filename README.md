@@ -50,7 +50,7 @@ Este backend se conecta a una base de datos MongoDB.
 
   
 ## Estructura del proyecto
--/DatosParaBd/productos.json
+- /DatosParaBd : contiene el json para crear la coleccion productos en mongo compass
 - /database : contiene la conexion a MongoDb , schemas y actions 
 - /routes : Definición de rutas API  
 - index.js : Punto de entrada del servidor  
